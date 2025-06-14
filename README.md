@@ -1,8 +1,29 @@
-# React + Vite
+# 💼 mi_react_portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a personal React-based portfolio I built to get hands-on experience with React and modern front-end development. It serves as both a creative playground and a portfolio to showcase my bio, projects, and certifications.
 
-Currently, two official plugins are available:
+> **My POV:**  
+> I made this to feel how React is — how components, props, and state come together to build something modular and interactive. This project helped me understand the fundamentals of React while also giving me a space to apply CSS and animation techniques in a real-world layout.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## ✨ Features
+
+- ⚛️ Built with React and Vite
+- 🎨 Custom CSS styling with Doto Sans font
+- 📄 Bio, Projects, and Certifications sections
+- 🌈 Animated background and clean transitions
+- 📱 Responsive design for all screen sizes
+
+---
+
+
+## ⚙️ Getting Started
+
+### 📥 Clone & Install
+
+```bash
+git clone https://github.com/Melvinfusedy/mi_react_portfolio.git
+cd mi_react_portfolio
+npm install
+npm run dev
