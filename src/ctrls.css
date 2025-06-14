@@ -1,0 +1,341 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+    font-family: 'Doto', sans-serif;
+    height: 100vh;
+    padding: 0.8cm;
+    border: 1px solid #333;
+    overflow: hidden;
+    position: relative;
+    background-color: #121212;
+}
+
+/* Typography */
+h1, p, nav {
+    font-family: 'Doto', sans-serif;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Layout container */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+/* Left Panel */
+.left-section {
+    flex: 0 0 250px;
+    padding: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    top: 20px;
+    left: -80px; /* name moved to left */
+}
+
+/* Primary Card */
+
+
+.card h1, .card h2, .card h3 {
+    margin: 0;
+}
+
+.card p {
+    margin: 10px 0;
+}
+
+
+
+/* Section Titles */
+.section-title {
+    font-size: 1.2em;
+    margin-top: 20px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+}
+
+/* Lists */
+.skills-list,
+.languages-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skills-list li,
+.languages-list li {
+    margin: 5px 0;
+}
+
+/* Cursor animation */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 17px;
+    background-color: #ffffffad;
+    animation: blink 1s infinite step-end;
+    margin-left: 0px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Noise background */
+#noiseCanvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Loader */
+#loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.pulse-dot {
+    width: 50px;
+    height: 50px;
+    background-color: #47ffdd;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.5); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+/* Navigation - fixed bottom */
+nav {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 1.1em;
+    transition: opacity 0.3s;
+}
+
+/* Dot navigation */
+.dot-link {
+    display: inline-block;
+    margin: 0 8px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background-color: rgb(89, 155, 153);
+    cursor: pointer;
+    vertical-align: middle;
+    margin-top: -3px;
+    transition: background-color 0.3s;
+    animation: colourShift 5s infinite alternate ease-in-out;
+}
+
+.dot-link:hover {
+    animation: none !important; /* Stop animation completely */
+    background-color: #47ffdd; /* A light purple, or choose any hover colour */
+}
+
+@keyframes colourShift {
+    0% {
+        background-color: rgb(89, 155, 153);
+    }
+    50% {
+        background-color: rgb(128, 0, 128);
+    }
+    100% {
+        background-color: rgb(89, 155, 153);
+    }
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-section {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .card,
+    .card2 {
+        max-width: 100%;
+        position: relative;
+        right: 0;
+        left: 0;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .name {
+        font-size: 1.5em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .role {
+        font-size: 1.2em;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 50px;
+    }
+
+    .left-section {
+        padding: 5px;
+        font-size: 0.9em;
+        text-align: left;
+    }
+
+    .card,
+    .card2 {
+        padding: 15px;
+        max-width: 100%;
+        margin: 20px;
+    }
+
+    .card {
+        max-height: calc(100vh - 160px);
+    }
+}
+
+/* Utility */
+.hidden {
+    display: none !important;
+}
+/* Glowing Cube Animation */
+/*
+.glowing-cube {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #47ffdd 10%, #1e1e1e 90%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) rotateX(25deg) rotateY(45deg);
+    box-shadow: 
+      0 0 20px #47ffdd,
+      0 0 40px #47ffdd80,
+      0 0 60px #47ffdd40,
+      inset 0 0 10px #47ffdd;
+    border-radius: 8px;
+    animation: cubeFloat 3s ease-in-out infinite alternate,
+               cubeRotate 8s linear infinite,
+               cubePulse 2.5s ease-in-out infinite;
+  }
+  
+  @keyframes cubeFloat {
+    from {
+      transform: translate(-50%, -50%) rotateX(25deg) rotateY(45deg) translateY(0);
+    }
+    to {
+      transform: translate(-50%, -50%) rotateX(25deg) rotateY(45deg) translateY(-12px);
+    }
+  }
+  
+  @keyframes cubeRotate {
+    from {
+      transform: translate(-50%, -50%) rotateX(25deg) rotateY(45deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotateX(25deg) rotateY(405deg); /* full spin + original 45deg */
+    
+   
+ /* 
+  @keyframes cubePulse {
+    0%, 100% {
+      box-shadow: 
+        0 0 20px #47ffdd,
+        0 0 40px #47ffdd80,
+        0 0 60px #47ffdd40,
+        inset 0 0 10px #47ffdd;
+      transform: scale(1) translate(-50%, -50%) rotateX(25deg) rotateY(45deg);
+    }
+    50% {
+      box-shadow: 
+        0 0 30px #47ffdd,
+        0 0 50px #47ffddaa,
+        0 0 80px #47ffdd66,
+        inset 0 0 14px #47ffdd;
+      transform: scale(1.025) translate(-50%, -50%) rotateX(25deg) rotateY(45deg);
+    }
+  }
+  

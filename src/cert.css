@@ -1,0 +1,51 @@
+* {
+    font-family: 'Doto', sans-serif;
+  }  
+.badges-slider {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+    height: 120px;
+    position: relative;
+  }
+  
+  .badges-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+    gap: 24px;
+    align-items: center;
+  }
+  
+  .badges-track img {
+    height: 120px;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s;
+  }
+  
+  .badges-track img:hover {
+    transform: scale(1.1);
+  }
+
+  .cert-link {
+    color: teal;
+    text-decoration: none;
+  }
+  
+  .cert-link:hover {
+    color: aquamarine
+  }
+  
+  
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  

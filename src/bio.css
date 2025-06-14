@@ -1,0 +1,103 @@
+* {
+  font-family: 'Doto', sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent;
+  position: relative;
+}
+
+/* Container is centred and allows room for nav */
+.container {
+  position: absolute;
+  top: 4px; /* Reduced from 20px */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 80px; /* still leaves room for nav */
+  width: 90vw;
+  max-width: 1300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Card now fills the container */
+.card {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 100%;
+  height: 88%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  box-sizing: border-box;
+  text-align: left;
+
+  /* Hide scrollbar but keep scroll functional */
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE and Edge */
+}
+
+.lang-name {
+  color: #00ffcc; /* Deep Sky Blue – adjust as you like */
+  font-weight: bold;
+}
+
+.date-text {
+  color: #ff0090; /* Deep Sky Blue or your preferred highlight colour */
+  font-weight: bold;
+}
+
+
+
+.card::-webkit-scrollbar {
+  display: none;                 /* Chrome, Safari, Opera */
+}
+
+/* Typography and spacing */
+h1 {
+  margin-top: 0;
+  text-align: left;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-top: 25px;
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.languages-list,
+.skills-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.languages-list li,
+.skills-list li {
+  margin-bottom: 10px;
+}
+
+/* Mobile friendly */
+@media (max-width: 768px) {
+  .container {
+    width: 95vw;
+    bottom: 70px;
+  }
+
+  .card {
+    padding: 20px 16px;  /* Symmetrical horizontal padding */
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 1.1em;
+  }
+}
