@@ -23,7 +23,7 @@ This is a personal React-based portfolio I built to get hands-on experience with
 ### 📥 Clone & Install
 
 ```bash
-git clone https://github.com/thoma-francy/mi_react_portfolio.git
+git clone https://github.com/Melvinfusedy/mi_react_portfolio.git
 cd mi_react_portfolio
 npm install
 npm run dev
