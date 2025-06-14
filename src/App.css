@@ -1,4 +1,8 @@
+* {
+  font-family: 'Doto', sans-serif;
+}
 #root {
+  font-family: 'Doto', sans-serif;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
