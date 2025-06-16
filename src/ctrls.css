@@ -1,5 +1,5 @@
 /* Reset */
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
 
 * {
     font-family: 'Doto', sans-serif;
@@ -324,62 +324,3 @@ nav ul li a {
 .hidden {
     display: none !important;
 }
-/* Glowing Cube Animation */
-/*
-.glowing-cube {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #47ffdd 10%, #1e1e1e 90%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-style: preserve-3d;
-    transform: translate(-50%, -50%) rotateX(25deg) rotateY(45deg);
-    box-shadow: 
-      0 0 20px #47ffdd,
-      0 0 40px #47ffdd80,
-      0 0 60px #47ffdd40,
-      inset 0 0 10px #47ffdd;
-    border-radius: 8px;
-    animation: cubeFloat 3s ease-in-out infinite alternate,
-               cubeRotate 8s linear infinite,
-               cubePulse 2.5s ease-in-out infinite;
-  }
-  
-  @keyframes cubeFloat {
-    from {
-      transform: translate(-50%, -50%) rotateX(25deg) rotateY(45deg) translateY(0);
-    }
-    to {
-      transform: translate(-50%, -50%) rotateX(25deg) rotateY(45deg) translateY(-12px);
-    }
-  }
-  
-  @keyframes cubeRotate {
-    from {
-      transform: translate(-50%, -50%) rotateX(25deg) rotateY(45deg);
-    }
-    to {
-      transform: translate(-50%, -50%) rotateX(25deg) rotateY(405deg); /* full spin + original 45deg */
-    
-   
- /* 
-  @keyframes cubePulse {
-    0%, 100% {
-      box-shadow: 
-        0 0 20px #47ffdd,
-        0 0 40px #47ffdd80,
-        0 0 60px #47ffdd40,
-        inset 0 0 10px #47ffdd;
-      transform: scale(1) translate(-50%, -50%) rotateX(25deg) rotateY(45deg);
-    }
-    50% {
-      box-shadow: 
-        0 0 30px #47ffdd,
-        0 0 50px #47ffddaa,
-        0 0 80px #47ffdd66,
-        inset 0 0 14px #47ffdd;
-      transform: scale(1.025) translate(-50%, -50%) rotateX(25deg) rotateY(45deg);
-    }
-  }
-  
