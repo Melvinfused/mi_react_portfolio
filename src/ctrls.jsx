@@ -9,19 +9,23 @@ import "./ctrls.css";
 import Bio from "./bio.jsx";
 
 // Scramble hook with delay
-const useScramble = (text, speed = 40, delay = 100) => {
-  const [display, setDisplay] = useState("");
+const useScramble = (text, speed = 40, delay = 100, intervalTime = 10000) => {
+  const [display, setDisplay] = useState(text);
 
   useEffect(() => {
-    let i = 0;
-    const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノАБВГДЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯअइभमसहഅആഇഈഖഗȺȾĐŋǤȴĦƵɄᚠᚢᚦᚨᚱᚲᚷᚹᛁᛃᛇᛉᛏᛒᛗᛟᛞz0123456789";
+    let scrambleInterval;
 
-    const start = setTimeout(() => {
+    const scrambleText = () => {
+      let i = 0;
+      const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノАБВГДЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯअइभमसहഅആഇഈഖഗȺȾĐŋǤȴĦƵɄᚠᚢᚦᚨᚱᚲᚷᚹᛁᛃᛇᛉᛏᛒᛗᛟᛞz0123456789";
+
       const interval = setInterval(() => {
         if (i <= text.length) {
           const scrambled = text
             .split("")
-            .map((char, idx) => (idx < i ? char : chars[Math.floor(Math.random() * chars.length)]))
+            .map((char, idx) =>
+              idx < i ? char : chars[Math.floor(Math.random() * chars.length)]
+            )
             .join("");
           setDisplay(scrambled);
           i++;
@@ -29,13 +33,21 @@ const useScramble = (text, speed = 40, delay = 100) => {
           clearInterval(interval);
         }
       }, speed);
-    }, delay);
+    };
 
-    return () => clearTimeout(start);
-  }, [text, speed, delay]);
+    const startScrambling = () => {
+      setTimeout(scrambleText, delay);
+    };
+
+    startScrambling();
+    scrambleInterval = setInterval(startScrambling, intervalTime);
+
+    return () => clearInterval(scrambleInterval);
+  }, [text, speed, delay, intervalTime]);
 
   return display;
 };
+
 
 // Glowing Cube Component
 const GlowingCube = () => (

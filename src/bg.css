@@ -88,7 +88,7 @@ html, body {
     background-color: hotpink;
   }
   75% {
-    background-color: orange;
+    background-color: hotpink;
   }
   100% {
     background-color: purple;
@@ -106,3 +106,88 @@ html, body {
 .indicator:nth-child(8) { animation-delay: 1.4s, 1.4s; }
 .indicator:nth-child(9) { animation-delay: 1.6s, 1.6s; }
 .indicator:nth-child(10){ animation-delay: 1.8s, 1.8s; }
+
+
+@media (max-width: 768px) {
+  .background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .indicator-wrapper {
+    position: relative;
+    width: 80vmin;
+    height: 80vmin;
+    animation: mobileSpin 20s linear infinite;
+  }
+
+  /* Each blade is positioned around the circle */
+  .indicator {
+    position: absolute;
+    width: 2cm;
+    height: 100vmax;
+    opacity: 0.6;
+    filter: blur(10px);
+    top: 50%;
+    left: 50%;
+    transform-origin: top center;
+    animation: mobileFade 6s ease-in-out infinite,
+               mobileColorCycle 8s linear infinite,
+               fanSwing 3s ease-in-out infinite;
+
+                /* existing styles... */
+    transform: rotate(var(--angle)) translateY(15vmin) rotate(var(--swing, 0deg));
+
+              
+  }
+
+  /* Positioning based on index (rotated outwards like fan blades) */
+  .indicator:nth-child(1)  { --angle: 0deg; }
+  .indicator:nth-child(2)  { --angle: 36deg; }
+  .indicator:nth-child(3)  { --angle: 72deg; }
+  .indicator:nth-child(4)  { --angle: 108deg; }
+  .indicator:nth-child(5)  { --angle: 144deg; }
+  .indicator:nth-child(6)  { --angle: 180deg; }
+  .indicator:nth-child(7)  { --angle: 216deg; }
+  .indicator:nth-child(8)  { --angle: 252deg; }
+  .indicator:nth-child(9)  { --angle: 288deg; }
+  .indicator:nth-child(10) { --angle: 324deg; }
+  
+
+  @keyframes mobileSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @keyframes fanSwing {
+    0%, 100%   { rotate: 0deg; }
+    25%        { rotate: 2.5deg; }
+    50%        { rotate: -2.5deg; }
+    75%        { rotate: 1.5deg; }
+  }
+
+  @keyframes mobileFade {
+    0%   { opacity: 0; }
+    15%  { opacity: 0.7; }
+    50%  { opacity: 1; }
+    85%  { opacity: 0.7; }
+    100% { opacity: 0; }
+  }
+  
+
+  @keyframes mobileColorCycle {
+    0%    { background-color: cyan; }
+    20%   { background-color: hotpink; }
+    40%   { background-color: magenta; }
+    60%   { background-color: purple; }
+    80%   { background-color: blueviolet; }
+    100%  { background-color: cyan; }
+  }
+}
