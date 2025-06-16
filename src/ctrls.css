@@ -238,6 +238,9 @@ nav ul li a {
     }
 }
 @media (max-width: 768px) {
+  body, .container, .card, .card2, .left-section, h1, h2, p, nav {
+    font-family: 'Doto', sans-serif !important;
+  }
   
   body {
     overflow: auto; /* allow scrolling */
