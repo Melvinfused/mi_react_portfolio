@@ -238,6 +238,7 @@ nav ul li a {
     }
 }
 @media (max-width: 768px) {
+  
   body {
     overflow: auto; /* allow scrolling */
   }
@@ -250,7 +251,7 @@ nav ul li a {
     position: relative;
     margin-top: auto;
     background-color: black; /* optional */
-    padding: 50px 0;
+    padding: 60px 0;
   }
 
   .card,
