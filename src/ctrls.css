@@ -237,63 +237,82 @@ nav ul li a {
         margin: 20px;
     }
 }
-
 @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      padding: 12px;
-      width: 100vw;
-      bottom: 60px;
-    }
-  
-    .card,
-    .card2 {
-      padding: 16px 12px;
-      width: 100%;
-      max-width: 100%;
-      margin: 8px auto;
-    }
-  
-    .card {
-      max-height: calc(100vh - 100px); /* Previously 160px — more vertical room */
-      height: auto; /* allows card to grow naturally */
-    }
-  
-    .name {
-      font-size: 1.6em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-      display: inline-block;
-    }
-  
-    .role {
-      font-size: 1.2em;
-      width: 100%;
-      display: inline-block;
-    }
-  
-    .left-section {
-      padding: 6px;
-      font-size: 0.9em;
-      text-align: left;
-    }
-  
-    .section-title {
-      font-size: 1.1em;
-    }
-  
-    .languages-list li,
-    .skills-list li {
-      margin-bottom: 6px;
-    }
-  
-    h1 {
-      font-size: 1.6em;
-    }
+  body {
+    overflow: auto; /* allow scrolling */
+  }
+  .container {
+    flex: 1;
+    padding-bottom: 40px; /* small gap above nav */
+  }
+
+  nav {
+    position: relative;
+    margin-top: auto;
+    background-color: black; /* optional */
+    padding: 12px 0;
+  }
+
+  .card,
+  .card2 {
+    padding: 16px 12px;
+    width: 100%;
+    max-width: 100%;
+    margin: 8px auto;
+    height: auto; /* ensures it grows with content */
+    overflow-y: auto;
+  }
+
+  .card {
+    max-height: none; /* remove forced height limit */
+  }
+
+  nav {
+    position: fixed;
+    bottom: 12px;
+    width: 100%;
+    z-index: 999;
+    background: transparent; /* or black if needed */
+    display: flex;
+    justify-content: center;
+  }
+
+  .name {
+    font-size: 1.6em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .role {
+    font-size: 1.2em;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .left-section {
+    padding: 6px;
+    font-size: 0.9em;
+    text-align: left;
+  }
+
+  .section-title {
+    font-size: 1.1em;
+  }
+
+  .languages-list li,
+  .skills-list li {
+    margin-bottom: 6px;
+  }
+
+  h1 {
+    font-size: 1.6em;
   }
   
+}
+
 
 /* Utility */
 .hidden {
