@@ -62,6 +62,26 @@ h1, p, nav {
     left: -80px; /* name moved to left */
 }
 
+
+.audio-toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+  
+  .sound-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .sound-toggle:hover {
+    transform: scale(1.2);
+  }
+  
 /* Primary Card */
 
 
@@ -158,6 +178,14 @@ nav {
     justify-content: center;
     align-items: center;
 }
+
+.active-link span {
+    color: rgb(128, 0, 107); /* neon cyan or any bright tone */
+    font-weight: bold;
+    text-shadow: 0 0 1px rgb(236, 4, 201);
+    transition: all 0.3s ease;
+  }
+  
 
 nav ul {
     display: flex;
