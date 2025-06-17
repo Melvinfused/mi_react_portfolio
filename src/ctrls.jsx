@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate 
 import { useSwipeable } from "react-swipeable";
 import "./ctrls.css";
 import Bio from "./bio.jsx";
-import BgSound from "./BgSound"; // 🔊 import sound toggle
+import BgSound from "./bgsound"; // 🔊 import sound toggle
 import clickSound from "./assets/Sounds/click.mp3";
 import HomeSound from "./assets/Sounds/Hclick.mp3";
 
