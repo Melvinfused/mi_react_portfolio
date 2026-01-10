@@ -1,139 +1,257 @@
 /* Global font */
 * {
-    font-family: 'Doto Sans', sans-serif;
-    box-sizing: border-box;
-  }
-  
-  /* Body setup */
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-color: #121212;
-    overflow: auto; /* Changed from hidden to prevent background shift */
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Main container */
+  font-family: 'Doto Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Body setup */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #121212;
+  overflow: auto;
+  /* Changed from hidden to prevent background shift */
+  display: flex;
+  align-items: center;
+}
+
+/* Main container */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card design */
+.card {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  text-align: left;
+
+  scrollbar-width: thin;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+.card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.card::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Heading */
+h1 {
+  margin-top: 0;
+  font-size: 2em;
+}
+
+/* Section titles */
+.section-title {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+/* Project entries */
+.project-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-left: 4px solid teal;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-left-color: aquamarine;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.project-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.3em;
+  color: aquamarine;
+}
+
+.project-card p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  color: #e0e0e0;
+}
+
+/* Lists if needed */
+.languages-list,
+.skills-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.languages-list li,
+.skills-list li {
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .container {
-    width: 90%;
-    max-width: 1000px;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 95%;
+    height: 100vh;
+    padding: 10px;
   }
-  
-  /* Card design */
+
   .card {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    width: 100%;
-    height: 100%;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    overflow-y: auto;
-    text-align: left;
-  
-    scrollbar-width: thin;              /* Firefox */
-    -ms-overflow-style: none;           /* IE 10+ */
-  }
-  
-  .card::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .card::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-  }
-  
-  .card::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-  }
-  
-  /* Heading */
-  h1 {
-    margin-top: 0;
-    font-size: 2em;
-  }
-  
-  /* Section titles */
-  .section-title {
-    font-weight: bold;
-    margin-top: 20px;
-    font-size: 1.2em;
-  }
-  
-  /* Project entries */
-  .project-card {
-    margin-bottom: 30px;
     padding: 20px;
-    border-left: 4px solid teal;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    font-size: 14px;
   }
-  
-  .project-card:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-left-color: aquamarine;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-  }
-  
+
   .project-card h2 {
-    margin: 0 0 10px;
-    font-size: 1.3em;
-    color: aquamarine;
+    font-size: 1.1em;
   }
-  
+
   .project-card p {
-    margin: 0;
-    line-height: 1.6;
-    font-size: 1em;
-    color: #e0e0e0;
+    font-size: 0.95em;
   }
-  
-  /* Lists if needed */
-  .languages-list,
-  .skills-list {
-    list-style-type: none;
-    padding-left: 0;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 16px;
+    font-size: 13px;
   }
-  
-  .languages-list li,
-  .skills-list li {
-    margin-bottom: 10px;
+}
+
+/* Clickable project cards */
+.project-card.clickable {
+  cursor: pointer;
+}
+
+.read-more {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.85em;
+  color: teal;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .read-more {
+  opacity: 1;
+}
+
+/* Modal overlay */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .container {
-      width: 95%;
-      height: 100vh;
-      padding: 10px;
-    }
-  
-    .card {
-      padding: 20px;
-      font-size: 14px;
-    }
-  
-    .project-card h2 {
-      font-size: 1.1em;
-    }
-  
-    .project-card p {
-      font-size: 0.95em;
-    }
+
+  to {
+    opacity: 1;
   }
-  
-  @media (max-width: 480px) {
-    .card {
-      padding: 16px;
-      font-size: 13px;
-    }
+}
+
+/* Modal box */
+.project-modal {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-modal h2 {
+  color: aquamarine;
+  margin: 0 0 20px 0;
+  padding-right: 40px;
+  font-size: 1.5em;
+}
+
+.modal-content {
+  color: #e0e0e0;
+  line-height: 1.8;
+}
+
+.modal-content p {
+  white-space: pre-wrap;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 2em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #fff;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: teal;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.project-link:hover {
+  background: #006666;
+}

@@ -6,7 +6,9 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate 
 import { useSwipeable } from "react-swipeable";
 import "./ctrls.css";
 import Bio from "./bio.jsx";
-import BgSound from "./bgsound"; // 🔊 import sound toggle
+import BgSound from "./bgsound";
+import PowerEdit from "./PowerEdit.jsx";
+import { EditProvider } from "./EditContext.jsx";
 import clickSound from "./assets/Sounds/click.mp3";
 import HomeSound from "./assets/Sounds/Hclick.mp3";
 
@@ -28,7 +30,8 @@ const useScramble = (text, speed = 40, delay = 100, intervalTime = 10000) => {
     let scrambleInterval;
     const scrambleText = () => {
       let i = 0;
-      const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノאינפיושנאנפויושינאפונܐܢܦܝܘܫܢܐܢܐܦܘܢܝܐܝܢܘܫܢܐܢᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟΙΝΦΥΣΙΟΝΙΑΝИнфюшонанइनफ्यूशनन्0123456789";
+      const chars = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z + - × ÷ = ≠ < > ≤ ≥ % √ ∞ ± ∑ ∏ $ € £ ¥ ₹ @ # & * _ ~ ^ | \\ / ( ) [ ] { } . , ; : ? ! … ' 0 1 2 3 4 5 6 7 8 9";
+
       const interval = setInterval(() => {
         if (i <= text.length) {
           const scrambled = text
@@ -102,19 +105,19 @@ const CtrlPanelLayout = () => {
     },
     trackMouse: true,
   });
-  
+
 
 
 
   const scrambledName = useScramble("Melvin Francy", 45, 400);
   const scrambledRole = useScramble("Tech Enthusiast & Developer", 30, 500);
-  const scrambledBio = useScramble("Bio", 80, 400);
-  const scrambledProjects = useScramble("Projects", 45, 600);
-  const scrambledCerts = useScramble("Certifications", 45, 400);
+  const scrambledBio = useScramble("Bio", 50, 400);
+  const scrambledCerts = useScramble("Certifications", 35, 550);
+  const scrambledProjects = useScramble("Projects", 40, 700);
 
   return (
     <div className="container" {...swipeHandlers}>
-      
+
       <div className="left-section">
         {location.pathname === "/" && (
           <>
@@ -154,6 +157,7 @@ const CtrlPanelLayout = () => {
           <Route path="/about-me" element={<AboutMe />} />
           <Route path="/certifications" element={<Certifications />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/power-edit" element={<PowerEdit />} />
         </Routes>
       </div>
     </div>
@@ -162,7 +166,9 @@ const CtrlPanelLayout = () => {
 
 const CtrlPanel = () => (
   <Router>
-    <CtrlPanelLayout />
+    <EditProvider>
+      <CtrlPanelLayout />
+    </EditProvider>
   </Router>
 );
 

@@ -1,0 +1,212 @@
+.power-edit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #121212;
+    color: #e0e0e0;
+    padding: 20px;
+    font-family: 'Doto', sans-serif;
+    overflow-y: auto;
+    z-index: 9998;
+}
+
+.power-edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+.power-edit-header h1 {
+    color: #47ffdd;
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-back,
+.btn-save {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Doto', sans-serif;
+    font-weight: bold;
+}
+
+.btn-back {
+    background: #333;
+    color: #fff;
+}
+
+.btn-save {
+    background: #47ffdd;
+    color: #121212;
+}
+
+.btn-save:hover {
+    background: #3de0c5;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    padding: 10px 20px;
+    background: #222;
+    border: 1px solid #333;
+    color: #aaa;
+    cursor: pointer;
+    font-family: 'Doto', sans-serif;
+}
+
+.tabs button.active {
+    background: #333;
+    color: #47ffdd;
+    border-color: #47ffdd;
+}
+
+/* Section */
+.section h2 {
+    color: #47ffdd;
+    margin: 20px 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section label {
+    display: block;
+    margin: 10px 0 5px 0;
+    color: #888;
+}
+
+.section input,
+.section textarea {
+    width: 100%;
+    padding: 10px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    font-family: 'Doto', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.section textarea {
+    resize: vertical;
+}
+
+.section input:focus,
+.section textarea:focus {
+    outline: none;
+    border-color: #47ffdd;
+}
+
+/* Item cards and rows */
+.item-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.item-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.item-row input {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Buttons */
+.btn-add {
+    padding: 4px 12px;
+    background: #47ffdd;
+    color: #121212;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Doto', sans-serif;
+}
+
+.btn-remove {
+    padding: 4px 10px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Doto', sans-serif;
+    white-space: nowrap;
+}
+
+.btn-remove:hover {
+    background: #ff3344;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .item-row {
+        flex-direction: column;
+    }
+
+    .power-edit-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Badges grid */
+.badges-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100px;
+}
+
+.badge-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.badge-item span {
+    font-size: 10px;
+    color: #888;
+    text-align: center;
+    word-break: break-all;
+    max-width: 80px;
+}
+
+.no-badges {
+    color: #666;
+    font-style: italic;
+}

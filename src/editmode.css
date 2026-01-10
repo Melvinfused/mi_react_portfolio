@@ -1,0 +1,67 @@
+/* Edit Mode Indicator Badge */
+.edit-mode-badge {
+    position: fixed;
+    top: 55px;
+    right: 20px;
+    background: transparent;
+    color: #47ffdd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: 'Doto', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 9999;
+    text-shadow: 0 0 5px rgba(71, 255, 221, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.power-edit-btn {
+    pointer-events: auto;
+    background: #47ffdd;
+    color: #121212;
+    padding: 4px 12px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-shadow: none;
+    transition: background 0.2s;
+}
+
+.power-edit-btn:hover {
+    background: #3de0c5;
+}
+
+/* Editable Text Styling */
+.editable-text {
+    cursor: text;
+    position: relative;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    outline: none;
+    border: 1px dashed transparent;
+}
+
+.editable-text:hover {
+    border-color: rgba(107, 0, 201, 0.5);
+    background: rgba(107, 0, 201, 0.05);
+}
+
+.editable-text:focus {
+    border-color: #6b00c9;
+    background: rgba(107, 0, 201, 0.1);
+    box-shadow: 0 0 10px rgba(107, 0, 201, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .edit-mode-badge {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+}
