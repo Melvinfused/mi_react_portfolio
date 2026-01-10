@@ -71,8 +71,8 @@ export const EditProvider = ({ children }) => {
         <EditContext.Provider value={{ isEditMode, setIsEditMode, serverOnline }}>
             {children}
 
-            {/* Server status indicator - only on home screen and localhost */}
-            {isLocalhost && isOnHome && (
+            {/* Server status indicator - only on home screen */}
+            {isOnHome && (
                 <ServerStatus onStatusChange={handleServerStatusChange} />
             )}
 
