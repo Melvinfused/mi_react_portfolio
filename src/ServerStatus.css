@@ -101,3 +101,15 @@
     background: #ff4757;
     transform: rotate(-45deg);
 }
+
+/* Mobile view - hide text, show only icon */
+@media (max-width: 768px) {
+    .server-status .status-text {
+        display: none;
+    }
+
+    .server-status {
+        padding: 10px;
+        gap: 0;
+    }
+}
