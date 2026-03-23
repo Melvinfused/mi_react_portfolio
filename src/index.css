@@ -76,3 +76,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Disable SVG filters in Firefox's backdrop-filter to prevent severe edge artifacts */
+@-moz-document url-prefix() {
+  .card, .profile-widget, .heatmap-container, .project-modal {
+    backdrop-filter: blur(2px) !important;
+  }
+}
