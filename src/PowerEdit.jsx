@@ -26,10 +26,10 @@ const defaultBioData = {
 };
 
 const defaultProjectsData = [
-    { title: "Artist Portfolio Website with Live Show Booking", description: "A sleek platform for showcasing an artist's work and managing live event bookings. It features a portfolio gallery, an easy-to-use booking system, and embedded music player.", link: "" },
-    { title: "Personal Portfolio Website", description: "This is basically my space on the web to show off what I've been working on. It's where I put together all my projects, talk a bit about what I do, and list the skills I've picked up.", link: "" },
-    { title: "Script to Read Aloud Weather Report", description: "My Weather and Air Quality Reader script is a Python tool that provides real-time weather, air quality, and wind updates for Kochi, India.", link: "" },
-    { title: "Intelligent Relocation Service Management System", description: "A full-stack application for moving office and home goods. Customers can choose a truck based on size, with pricing calculated using open-source mapping and routing APIs.", link: "" }
+    { title: "Artist Portfolio Website with Live Show Booking", description: "A sleek platform for showcasing an artist's work and managing live event bookings.", techUsed: "React, Node.js, Express", link: "https://github.com/Melvinfused" },
+    { title: "Personal Portfolio Website", description: "This is basically my space on the web to show off what I've been working on.", techUsed: "React.js, CSS", link: "https://github.com/Melvinfused/mi_react_portfolio" },
+    { title: "Script to Read Aloud Weather Report", description: "My Weather and Air Quality Reader script is a Python tool that provides real-time updates.", techUsed: "Python", link: "https://github.com/Melvinfused/Text-to-Speech-Weather-Reader" },
+    { title: "Intelligent Relocation Service Management System", description: "A full-stack application for moving office and home goods.", techUsed: "PHP, MySQL, HTML", link: "https://github.com/Melvinfused/Intelligent-relocation-service-management-system-" }
 ];
 
 const defaultCertsData = {
@@ -48,6 +48,7 @@ const PowerEdit = () => {
     const navigate = useNavigate();
     const { isEditMode } = useEditMode();
     const fileInputRef = useRef(null);
+    const resumeInputRef = useRef(null);
 
     // Initialize from portfolio.json file
     const [bioData, setBioData] = useState(portfolioData.bio || defaultBioData);
@@ -179,7 +180,7 @@ const PowerEdit = () => {
 
     // Projects handlers
     const addProject = () => {
-        setProjectsData(prev => [...prev, { title: "", description: "", link: "" }]);
+        setProjectsData(prev => [...prev, { title: "", description: "", details: "", techUsed: "", link: "" }]);
     };
 
     const updateProject = (index, field, value) => {
@@ -263,6 +264,34 @@ const PowerEdit = () => {
         e.target.value = "";
     };
 
+    const handleResumeUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file || file.type !== "application/pdf") return;
+
+        const reader = new FileReader();
+        reader.onloadend = async () => {
+            try {
+                const response = await fetch('http://localhost:3001/api/upload-resume', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: file.name, data: reader.result })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    updateBioField("resumeUrl", data.path);
+                    alert('Resume successfully uploaded! Remember to Save All.');
+                } else {
+                    alert('Failed to upload Resume. Make sure server is running.');
+                }
+            } catch (error) {
+                alert('Failed to upload Resume. Make sure server is running.');
+            }
+        };
+        reader.readAsDataURL(file);
+        e.target.value = "";
+    };
+
     const removeBadge = async (index) => {
         const badge = certsData.customBadges[index];
         if (badge && badge.filename) {
@@ -311,6 +340,20 @@ const PowerEdit = () => {
                         <label>Intro Paragraph 2</label>
                         <textarea value={bioData.intro2} onChange={(e) => updateBioField("intro2", e.target.value)} rows={4} />
 
+                        <h2>Resume <button className="btn-add" onClick={() => resumeInputRef.current?.click()}>+ Upload PDF</button></h2>
+                        <input
+                            type="file"
+                            ref={resumeInputRef}
+                            onChange={handleResumeUpload}
+                            accept="application/pdf"
+                            style={{ display: "none" }}
+                        />
+                        {bioData.resumeUrl ? (
+                            <p style={{color: '#00ffcc', fontSize: '14px', marginBottom: '20px'}}>✓ Active Resume: {bioData.resumeUrl.split('/').pop()}</p>
+                        ) : (
+                            <p className="no-badges" style={{marginBottom: '20px'}}>No resume uploaded yet.</p>
+                        )}
+
                         <h2>Profiles <button className="btn-add" onClick={addProfile}>+ Add</button></h2>
                         {bioData.profiles.map((profile, i) => (
                             <div key={i} className="item-row">
@@ -358,9 +401,10 @@ const PowerEdit = () => {
                                 <input placeholder="Project Title" value={project.title} onChange={(e) => updateProject(i, "title", e.target.value)} />
                                 <label style={{ color: '#888', fontSize: '12px', marginTop: '5px' }}>Short Description (shown on card)</label>
                                 <textarea placeholder="Brief description..." value={project.description} onChange={(e) => updateProject(i, "description", e.target.value)} rows={2} />
+                                <input placeholder="Tech Stack (e.g. React, Python)" value={project.techUsed || ''} onChange={(e) => updateProject(i, "techUsed", e.target.value)} />
                                 <label style={{ color: '#888', fontSize: '12px', marginTop: '5px' }}>Detailed Description (shown in popup)</label>
                                 <textarea placeholder="Detailed description with more info... (optional)" value={project.details || ''} onChange={(e) => updateProject(i, "details", e.target.value)} rows={5} />
-                                <input placeholder="Link (optional)" value={project.link} onChange={(e) => updateProject(i, "link", e.target.value)} />
+                                <input placeholder="GitHub or Live Link (optional)" value={project.link} onChange={(e) => updateProject(i, "link", e.target.value)} />
                                 <button className="btn-remove" onClick={() => removeProject(i)}>× Remove Project</button>
                             </div>
                         ))}

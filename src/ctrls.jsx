@@ -111,9 +111,6 @@ const CtrlPanelLayout = () => {
 
   const scrambledName = useScramble("Melvin Francy", 45, 400);
   const scrambledRole = useScramble("Tech Enthusiast & Developer", 30, 500);
-  const scrambledBio = useScramble("Bio", 50, 400);
-  const scrambledCerts = useScramble("Certifications", 35, 550);
-  const scrambledProjects = useScramble("Projects", 40, 700);
 
   return (
     <div className="container" {...swipeHandlers}>
@@ -131,17 +128,19 @@ const CtrlPanelLayout = () => {
             <li><Link to="/" onClick={playHomeSound} className="dot-link"></Link></li>
             <li>
               <Link to="/about-me" onClick={playClickSound} className={location.pathname === "/about-me" ? "active-link" : ""}>
-                <span className="scramble-text">{scrambledBio}</span>
+                <span>Bio</span>
               </Link>
             </li>
+            <li className="nav-separator">/</li>
             <li>
               <Link to="/certifications" onClick={playClickSound} className={location.pathname === "/certifications" ? "active-link" : ""}>
-                <span className="scramble-text">{scrambledCerts}</span>
+                <span>Certifications</span>
               </Link>
             </li>
+            <li className="nav-separator">/</li>
             <li>
               <Link to="/projects" onClick={playClickSound} className={location.pathname === "/projects" ? "active-link" : ""}>
-                <span className="scramble-text">{scrambledProjects}</span>
+                <span>Projects</span>
               </Link>
             </li>
             <li>

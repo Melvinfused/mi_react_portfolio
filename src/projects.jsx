@@ -41,11 +41,15 @@ const ScrambleText = ({ children, speed = 30, delay = 100 }) => {
   return <>{scrambled}</>;
 };
 
-// Use data from portfolio.json
-const projectsData = portfolioData.projects;
-
 const Projkts = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const projectsData = (portfolioData.projects || []).map(p => ({
+    title: p.title,
+    description: p.description,
+    details: p.techUsed ? `Tech Stack: ${p.techUsed}\n\n${p.details || p.description || ""}` : (p.details || p.description || ""),
+    link: p.link
+  }));
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -68,6 +72,10 @@ const Projkts = () => {
     <div className="container">
       <div className="card">
         <h1><ScrambleText>Projects</ScrambleText></h1><br />
+        
+        {projectsData.length === 0 && (
+          <p>No projects found. Add some using Power Edit!</p>
+        )}
 
         {projectsData.map((project, i) => (
           <div
@@ -91,7 +99,7 @@ const Projkts = () => {
             <button className="modal-close" onClick={closeModal}>×</button>
             <h2>{selectedProject.title}</h2>
             <div className="modal-content">
-              <p>{selectedProject.details || selectedProject.description}</p>
+              <p>{selectedProject.details}</p>
               {selectedProject.link && (
                 <a
                   href={selectedProject.link}

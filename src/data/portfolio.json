@@ -1,123 +1,176 @@
 {
-    "bio": {
-        "intro1": "I'm Melvin Francy, a self-motivated Integrated MCA Postgraduate with a solid grasp of the the tech landscape and languages like Python, C, C#, C++, and JavaScript, along with Bash and PowerShell command-line interfaces. My foundation spans cloud computing, artificial intelligence, and system maintenance, reinforced by both academic learning and hands-on project experience.",
-        "intro2": "I'm passionate about exploring new technologies and enjoy diving into diverse tools and languages, even outside formal settings. I thrive in collaborative, innovation-focused environments and am committed to continuous growth. I look forward to applying my skills meaningfully, contributing to dynamic teams, and expanding my technical horizons.",
-        "education": [
-            {
-                "date": "July 2025",
-                "institution": "De Paul Institute of Science And Technology, Angamaly, Kerala",
-                "degree": "Integrated Master of Computer Application (MCA)"
-            },
-            {
-                "date": "March 2020",
-                "institution": "Technical Higher Secondary School, Aluva, Kerala",
-                "degree": "Plus 2"
-            },
-            {
-                "date": "July 2017",
-                "institution": "St. Mary's High School, Aluva, Kerala",
-                "degree": "SSLC"
-            }
-        ],
-        "languages": [
-            {
-                "name": "Malayalam",
-                "level": "Native"
-            },
-            {
-                "name": "English",
-                "level": "Professional"
-            },
-            {
-                "name": "Hindi",
-                "level": "Beginner"
-            }
-        ],
-        "skills": [
-            "Problem-Solving",
-            "Adaptability"
-        ],
-        "profiles": [
-            {
-                "name": "LinkedIn",
-                "url": "https://www.linkedin.com/in/melvinfrancy"
-            },
-            {
-                "name": "GitHub",
-                "url": "https://github.com/Melvinfused"
-            }
-        ]
-    },
-    "projects": [
-        {
-            "title": "Artist Portfolio Website with Live Show Booking",
-            "description": "A sleek platform for showcasing an artist's work and managing live event bookings. It features a portfolio gallery, an easy-to-use booking system, and embedded music player.",
-            "details": "A sleek platform for showcasing an artist's work and managing live event bookings. It features a portfolio gallery, an easy-to-use booking system, and embedded music player. Ideal for musicians, performers, and creatives, it helps connect with fans and organisers, making it simple to schedule gigs and display upcoming shows.",
-            "link": ""
-        },
-        {
-            "title": "Personal Portfolio Website",
-            "description": "This is basically my space on the web to show off what I've been working on. It's where I put together all my projects, talk a bit about what I do, and list the skills I've picked up.",
-            "details": "This is basically my space on the web to show off what I've been working on. It's where I put together all my projects, talk a bit about what I do, and list the skills I've picked up. Think of it like a digital resume but with more personality—it's where I can let my work speak for itself. Plus, it makes it easy for anyone interested in collaborating or hiring to get in touch with me directly. It's my own little corner of the internet.",
-            "link": ""
-        },
-        {
-            "title": "Script to Read Aloud Weather Report",
-            "description": "My Weather and Air Quality Reader script is a Python tool that provides real-time weather, air quality, and wind updates for Kochi, India.",
-            "details": "My Weather and Air Quality Reader script is a Python tool that provides real-time weather, air quality, and wind updates for Kochi, India. It fetches weather details (temperature, description, wind speed) from OpenWeatherMap and air quality info (AQI) from AQICN. The script then reads this data aloud using gTTS, and plays the audio via Pygame. It can be automated using Windows Task Scheduler or similar tools, making it a convenient hands-free way to stay informed.",
-            "link": ""
-        },
-        {
-            "title": "Intelligent Relocation Service Management System",
-            "description": "A full-stack application for moving office and home goods. Customers can choose a truck based on size, with pricing calculated using open-source mapping and routing APIs.",
-            "details": "A full-stack application for moving office and home goods. Customers can choose a truck based on size, with pricing calculated using open-source mapping and routing APIs. It takes into account distance, fuel economy, rental rates, and current fuel prices. Ideal for Packers & Movers services looking to optimise logistics and enhance customer experience.",
-            "link": ""
-        }
+  "bio": {
+    "intro1": "I'm Melvin Francy, a self-motivated Integrated MCA Postgraduate with a solid grasp of the the tech landscape and languages like Python, C, C#, C++, and JavaScript, along with Bash and PowerShell command-line interfaces. My foundation spans cloud computing, artificial intelligence, and system maintenance, reinforced by both academic learning and hands-on project experience.",
+    "intro2": "I'm passionate about exploring new technologies and enjoy diving into diverse tools and languages, even outside formal settings. I thrive in collaborative, innovation-focused environments and am committed to continuous growth. I look forward to applying my skills meaningfully, contributing to dynamic teams, and expanding my technical horizons.",
+    "education": [
+      {
+        "date": "July 2025",
+        "institution": "De Paul Institute of Science And Technology, Angamaly, Kerala",
+        "degree": "Integrated Master of Computer Application (IMCA)"
+      },
+      {
+        "date": "March 2020",
+        "institution": "Technical Higher Secondary School, Aluva, Kerala",
+        "degree": "Plus 2"
+      },
+      {
+        "date": "July 2017",
+        "institution": "St. Mary's High School, Aluva, Kerala",
+        "degree": "SSLC"
+      }
     ],
-    "certs": {
-        "certifications": [
-            {
-                "name": "Career Essentials in Generative AI",
-                "org": "Microsoft & LinkedIn",
-                "year": "2023",
-                "link": "https://www.linkedin.com/learning/certificates/ace5594ca7bf4da20addc125787808fe1906304f4966fce8659fe92afb372a1d"
-            },
-            {
-                "name": "LFS101: Introduction to Linux",
-                "org": "The Linux Foundation",
-                "year": "2024",
-                "link": "https://www.credly.com/badges/6194a241-a84f-4249-8477-d6e03ccb2459/linked_in_profile"
-            },
-            {
-                "name": "Python Essentials 1",
-                "org": "Cisco",
-                "year": "2024",
-                "link": "https://www.credly.com/badges/6250dc1b-9072-498d-bb14-2405ddbd76bd/linked_in_profile"
-            },
-            {
-                "name": "Operating Systems Basics",
-                "org": "Cisco",
-                "year": "2024",
-                "link": "https://www.credly.com/badges/f571ea2e-62eb-4b3b-81e7-c9b2a0f56eac/linked_in_profile"
-            },
-            {
-                "name": "Computer Hardware Basics",
-                "org": "Cisco",
-                "year": "2024",
-                "link": "https://www.credly.com/badges/f8608d4b-0dc0-48e1-aa2f-d497aa0577d5/linked_in_profile"
-            }
-        ],
-        "techSkills": [
-            "Web Development",
-            "Python",
-            "C#",
-            "Cloud Computing",
-            "Technical Troubleshooting",
-            "Hardware Maintenance",
-            "Operating Systems",
-            "Computer Networks",
-            "Artificial Intelligence"
-        ],
-        "customBadges": []
+    "languages": [
+      {
+        "name": "Malayalam",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Professional"
+      },
+      {
+        "name": "Hindi",
+        "level": "Beginner"
+      }
+    ],
+    "skills": [
+      "Problem-Solving",
+      "Adaptability"
+    ],
+    "profiles": [
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/melvinfrancy"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Melvinfused"
+      }
+    ],
+    "resumeUrl": "/src/assets/Resume/1774258104367_Melvin_Francy_dev_resume.pdf"
+  },
+  "projects": [
+    {
+      "title": "Artist Portfolio Website with Live Show Booking",
+      "description": "A sleek platform for showcasing an artist's work and managing live event bookings. It features a portfolio gallery, an easy-to-use booking system, and embedded music player.",
+      "details": "A sleek platform for showcasing an artist's work and managing live event bookings. It features a portfolio gallery, an easy-to-use booking system, and embedded music player. Ideal for musicians, performers, and creatives, it helps connect with fans and organisers, making it simple to schedule gigs and display upcoming shows.",
+      "techUsed": "PHP, SCSS, CSS, HTML, Hack, JavaScript",
+      "link": "https://github.com/Melvinfused/Artist-Portfolio-Website"
+    },
+    {
+      "title": "Personal Portfolio Website (React Edition)",
+      "description": "This is basically my space on the web to show off what I've been working on. It's where I put together all my projects, talk a bit about what I do, and list the skills I've picked up.",
+      "details": "This is basically my space on the web to show off what I've been working on. It's where I put together all my projects, talk a bit about what I do, and list the skills I've picked up. Think of it like a digital resume but with more personality—it's where I can let my work speak for itself. Plus, it makes it easy for anyone interested in collaborating or hiring to get in touch with me directly. It's my own little corner of the internet.",
+      "techUsed": "JavaScript, CSS, HTML",
+      "link": "https://github.com/Melvinfused/mi_react_portfolio"
+    },
+    {
+      "title": "Script to Read Aloud Weather Report",
+      "description": "My Weather and Air Quality Reader script is a Python tool that provides real-time weather, air quality, and wind updates for Kochi, India.",
+      "details": "My Weather and Air Quality Reader script is a Python tool that provides real-time weather, air quality, and wind updates for Kochi, India. It fetches weather details (temperature, description, wind speed) from OpenWeatherMap and air quality info (AQI) from AQICN. The script then reads this data aloud using gTTS, and plays the audio via Pygame. It can be automated using Windows Task Scheduler or similar tools, making it a convenient hands-free way to stay informed.",
+      "techUsed": "Python",
+      "link": "https://github.com/Melvinfused/read_aloud_weather_report"
+    },
+    {
+      "title": "Intelligent Relocation Service Management System",
+      "description": "A full-stack application for moving office and home goods. Customers can choose a truck based on size, with pricing calculated using open-source mapping and routing APIs.",
+      "details": "A full-stack application for moving office and home goods. Customers can choose a truck based on size, with pricing calculated using open-source mapping and routing APIs. It takes into account distance, fuel economy, rental rates, and current fuel prices. Ideal for Packers & Movers services looking to optimise logistics and enhance customer experience.",
+      "techUsed": "PHP, MySQL, HTML, JavaScript",
+      "link": ""
+    },
+    {
+      "title": "Metro Link",
+      "description": "A Microsoft Metro UI inspired Linktree Alternative.",
+      "details": "A Microsoft Metro UI inspired Linktree Alternative.",
+      "techUsed": "JavaScript, CSS, HTML",
+      "link": "https://github.com/Melvinfused/metro-link"
+    },
+    {
+      "title": "WAVESTAT",
+      "description": "WAVESTAT is a web based audio codec performance comparison utility.",
+      "details": "WAVESTAT is a web based audio codec performance comparison utility.",
+      "techUsed": "JavaScript, CSS, HTML",
+      "link": "https://github.com/Melvinfused/WAVESTAT"
+    },
+    {
+      "title": "Amusement Park Carnival Management & Booking Platform",
+      "description": "A website with rides booking at carnivals/parks on the client side & an admin side where the rides & activities can be managed.",
+      "details": "A website with rides booking at carnivals/parks on the client side & an admin side where the rides & activities can be managed.",
+      "techUsed": "JavaScript, CSS, HTML, SCSS, ASP.NET, C#, PHP",
+      "link": "https://github.com/Melvinfused/Amusement-Park-Carnival-Management-Booking-Platform"
+    },
+    {
+      "title": "Infution Portfolio",
+      "description": "My Artist Portfolio Website",
+      "details": "My Artist Portfolio Website",
+      "techUsed": "JavaScript, CSS, HTML",
+      "link": "https://github.com/Melvinfused/infution_portfolio"
+    },
+    {
+      "title": "Weather App",
+      "description": "Just another weather app.",
+      "details": "Just another weather app.",
+      "techUsed": "JavaScript, CSS, HTML",
+      "link": "https://github.com/Melvinfused/weatherapp"
+    },
+    {
+      "title": "Personal Portfolio (Old HTML version)",
+      "description": "sweet folio o'mine",
+      "details": "sweet folio o'mine",
+      "techUsed": "HTML, CSS",
+      "link": "https://github.com/Melvinfused/mi_portfolio"
+    },
+    {
+      "title": "Centrum Demo",
+      "description": "Repository demo for Centrum",
+      "details": "Repository demo for Centrum",
+      "techUsed": "Python, JavaScript, CSS, HTML",
+      "link": "https://github.com/Melvinfused/Centrum_Demo"
     }
+  ],
+  "certs": {
+    "certifications": [
+      {
+        "name": "Career Essentials in Generative AI",
+        "org": "Microsoft & LinkedIn",
+        "year": "2023",
+        "link": "https://www.linkedin.com/learning/certificates/ace5594ca7bf4da20addc125787808fe1906304f4966fce8659fe92afb372a1d"
+      },
+      {
+        "name": "LFS101: Introduction to Linux",
+        "org": "The Linux Foundation",
+        "year": "2024",
+        "link": "https://www.credly.com/badges/6194a241-a84f-4249-8477-d6e03ccb2459/linked_in_profile"
+      },
+      {
+        "name": "Python Essentials 1",
+        "org": "Cisco",
+        "year": "2024",
+        "link": "https://www.credly.com/badges/6250dc1b-9072-498d-bb14-2405ddbd76bd/linked_in_profile"
+      },
+      {
+        "name": "Operating Systems Basics",
+        "org": "Cisco",
+        "year": "2024",
+        "link": "https://www.credly.com/badges/f571ea2e-62eb-4b3b-81e7-c9b2a0f56eac/linked_in_profile"
+      },
+      {
+        "name": "Computer Hardware Basics",
+        "org": "Cisco",
+        "year": "2024",
+        "link": "https://www.credly.com/badges/f8608d4b-0dc0-48e1-aa2f-d497aa0577d5/linked_in_profile"
+      }
+    ],
+    "techSkills": [
+      "Programming: Python, C#, PHP, Bash",
+      "Backend Frameworks & APIs: Django, DRF, REST APIs",
+      "Databases: MySQL, PostgreSQL, Redis",
+      "Version Control: Git, GitHub",
+      "Operating Systems & CLI: Linux, Windows",
+      "Containers & Tools: Docker, Bash, Postman, DBeaver",
+      "Web Servers & Networking: NGINX, Apache, DNS, SSH, Firewalls",
+      "Other: Basic Cloud Concepts"
+    ],
+    "customBadges": []
+  }
 }

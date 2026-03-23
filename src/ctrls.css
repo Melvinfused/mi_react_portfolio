@@ -1,8 +1,6 @@
 /* Reset */
-@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100;300;400;700;900&display=swap');
 
 * {
-  font-family: 'Doto', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,21 +8,15 @@
 
 /* Base styles */
 body {
-  font-family: 'Doto', sans-serif;
   height: 100vh;
-  padding: 0.8cm;
-  border: 1px solid #333;
+  padding: 0;
+  border: none;
   overflow: hidden;
   position: relative;
-  background-color: #121212;
+  background-color: transparent;
 }
 
-/* Typography */
-h1,
-p,
-nav {
-  font-family: 'Doto', sans-serif;
-}
+/* Typography inherit from index.css */
 
 /* Animations */
 .fade-in {
@@ -208,17 +200,24 @@ nav {
 nav {
   position: fixed;
   bottom: 30px;
-  left: 0;
-  width: 100%;
+  right: 2%;
+  left: auto;
+  width: auto;
   z-index: 1000;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+}
+
+.nav-separator {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.1em;
+  user-select: none;
+  margin: 0 -5px;
 }
 
 .active-link span {
   color: rgb(128, 0, 107);
-  /* neon cyan or any bright tone */
   font-weight: bold;
   text-shadow: 0 0 1px rgb(236, 4, 201);
   transition: all 0.3s ease;
@@ -246,7 +245,7 @@ nav ul li a {
   text-decoration: none;
   color: #e0e0e0;
   font-size: 1.1em;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, text-shadow 0.3s;
 }
 
 /* Dot navigation */
@@ -362,10 +361,11 @@ nav ul li a {
   nav {
     position: fixed;
     bottom: 12px;
+    left: 0;
+    right: auto;
     width: 100%;
     z-index: 999;
     background: transparent;
-    /* or black if needed */
     display: flex;
     justify-content: center;
   }

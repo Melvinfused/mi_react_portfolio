@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LinkedinBoxFillIcon from "remixicon-react/LinkedinBoxFillIcon";
 import "./bio.css";
 import portfolioData from "./data/portfolio.json";
 
@@ -44,6 +45,17 @@ const ScrambleText = ({ children, speed = 40, delay = 100 }) => {
 const bioData = portfolioData.bio;
 
 const Bio = () => {
+  const [githubUser, setGithubUser] = useState(null);
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/Melvinfused')
+      .then(res => res.json())
+      .then(data => setGithubUser(data))
+      .catch(err => console.error("Error fetching GitHub user:", err));
+  }, []);
+
+  const linkedinProfile = bioData.profiles.find(p => p.name.toLowerCase() === 'linkedin');
+
   return (
     <div className="container">
       <div className="card">
@@ -53,17 +65,61 @@ const Bio = () => {
         <p>{bioData.intro2}</p>
 
         <div className="section-title">
+          <ScrambleText>Résumé</ScrambleText>
+        </div>
+        {bioData.resumeUrl ? (
+          <div className="resume-section">
+            <a href={bioData.resumeUrl} target="_blank" rel="noopener noreferrer" className="btn-download-resume">
+              View Résumé
+            </a>
+            <a href={bioData.resumeUrl} download="Melvin_Francy_Résumé.pdf" className="btn-download-resume">
+              Download PDF
+            </a>
+          </div>
+        ) : (
+          <p style={{ color: '#ccc', fontStyle: 'italic', fontSize: '0.9em' }}>No résumé available.</p>
+        )}
+
+        <div className="section-title">
           <ScrambleText>Profiles</ScrambleText>
         </div>
-        <ul className="profiles-list">
-          {bioData.profiles.map((profile, i) => (
-            <li key={i}>
-              <a href={profile.url} target="_blank" rel="noopener noreferrer">
-                {profile.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+
+        <div className="profiles-grid">
+          {githubUser && (
+            <a href={githubUser.html_url} target="_blank" rel="noopener noreferrer" className="profile-widget">
+              <img src={githubUser.avatar_url} alt="GitHub Avatar" className="profile-avatar" />
+              <div className="profile-info">
+                <span className="profile-name"><ScrambleText>{githubUser.login}</ScrambleText></span>
+                <span className="profile-bio">{githubUser.bio || "Software Developer"}</span>
+              </div>
+            </a>
+          )}
+
+          {linkedinProfile && (
+            <a href={linkedinProfile.url} target="_blank" rel="noopener noreferrer" className="profile-widget">
+              <div className="profile-avatar linkedin-icon-wrapper">
+                <LinkedinBoxFillIcon size={34} color="#fff" />
+              </div>
+              <div className="profile-info">
+                <span className="profile-name"><ScrambleText>LinkedIn</ScrambleText></span>
+                <span className="profile-bio">Connect with me professionally</span>
+              </div>
+            </a>
+          )}
+        </div>
+
+        <div className="section-title" style={{ marginTop: '25px' }}>
+          <ScrambleText>Git Contributions</ScrambleText>
+        </div>
+        <div className="heatmap-container">
+          <a href={githubUser ? githubUser.html_url : "https://github.com/Melvinfused"} target="_blank" rel="noopener noreferrer">
+            <img
+              className="heatmap-img"
+              src="https://ghchart.rshah.org/00ffcc/Melvinfused"
+              alt="GitHub Contributions Heatmap"
+            />
+          </a>
+        </div>
 
         <div className="section-title">
           <ScrambleText>Education and Training</ScrambleText>
