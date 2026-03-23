@@ -30,8 +30,8 @@ body {
 /* Card now fills the container */
 .card {
   background: rgba(10, 10, 10, 0.2);
-  backdrop-filter: blur(2px) url(#ca-glass);
-  -webkit-backdrop-filter: blur(2px) url(#ca-glass);
+  backdrop-filter: url(#ca-glass);
+  -webkit-backdrop-filter: url(#ca-glass);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.9);
   width: 100%;
@@ -115,8 +115,8 @@ h1 {
 
 .profile-widget {
   background: rgba(10, 10, 10, 0.4);
-  backdrop-filter: blur(2px) url(#ca-glass);
-  -webkit-backdrop-filter: blur(2px) url(#ca-glass);
+  backdrop-filter: url(#ca-glass);
+  -webkit-backdrop-filter: url(#ca-glass);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   padding: 15px;
@@ -185,8 +185,8 @@ h1 {
   margin-top: 15px;
   padding: 15px;
   background: rgba(10, 10, 10, 0.4);
-  backdrop-filter: blur(2px) url(#ca-glass);
-  -webkit-backdrop-filter: blur(2px) url(#ca-glass);
+  backdrop-filter: url(#ca-glass);
+  -webkit-backdrop-filter: url(#ca-glass);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   overflow-x: auto;
