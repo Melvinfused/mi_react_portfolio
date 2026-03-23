@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "./ServerStatus.css";
 
-const ServerStatus = ({ onStatusChange }) => {
-    const [status, setStatus] = useState("connecting"); // "connecting" | "online" | "offline"
+const ServerStatus = ({ onStatusChange, enabled }) => {
+    const [status, setStatus] = useState(enabled ? "connecting" : "idle"); // "idle" | "connecting" | "online" | "offline"
     const [dots, setDots] = useState("");
+    const [altMessage, setAltMessage] = useState(false); // Toggle for alternating message
+
+    // Alternating message for idle state
+    useEffect(() => {
+        if (status !== "idle") return;
+
+        const interval = setInterval(() => {
+            setAltMessage(prev => !prev);
+        }, 3000); // Switch every 3 seconds
+
+        return () => clearInterval(interval);
+    }, [status]);
 
     // Animated dots during connecting
     useEffect(() => {
@@ -18,7 +30,13 @@ const ServerStatus = ({ onStatusChange }) => {
 
     // Check server connection
     useEffect(() => {
+        if (!enabled) {
+            setStatus("idle");
+            return;
+        }
+
         const checkServer = async () => {
+            setStatus("connecting");
             try {
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 3000);
@@ -46,10 +64,23 @@ const ServerStatus = ({ onStatusChange }) => {
         // Start checking after a brief delay for visual effect
         const timer = setTimeout(checkServer, 1500);
         return () => clearTimeout(timer);
-    }, [onStatusChange]);
+    }, [onStatusChange, enabled]);
 
     return (
         <div className={`server-status ${status}`}>
+            {status === "idle" && (
+                <>
+                    <div className="wifi-icon" style={{ color: "#ff4757", opacity: 0.5 }}>
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                            <path d="M2.80815 1.39343L20.4858 19.0711L19.0716 20.4853L15.3889 16.8034L12.0005 21L0.689941 6.99674C1.60407 6.25747 2.59204 5.60589 3.64107 5.05479L1.39394 2.80765L2.80815 1.39343ZM3.57997 7.39183L12.0005 17.817L13.9669 15.3804L5.13163 6.54439C4.59981 6.79756 4.08187 7.0804 3.57997 7.39183ZM12.0005 3.00003C16.2849 3.00003 20.2196 4.49687 23.3104 6.99611L17.9039 13.689L16.4819 12.267L20.4204 7.39135C17.9226 5.84171 15.0278 5.00003 12.0005 5.00003C11.1277 5.00003 10.2659 5.07 9.42141 5.20674L7.72504 3.51088C9.09547 3.17702 10.5273 3.00003 12.0005 3.00003Z"></path>
+                        </svg>
+                    </div>
+                    <span className="status-text alternating">
+                        {altMessage ? "Initiate Scan" : "Composer Offline"}
+                    </span>
+                </>
+            )}
+
             {status === "connecting" && (
                 <>
                     <div className="loader-spinner"></div>

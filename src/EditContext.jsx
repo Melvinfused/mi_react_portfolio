@@ -13,15 +13,13 @@ const isLocalhost = typeof window !== 'undefined' &&
 export const EditProvider = ({ children }) => {
     const [isEditMode, setIsEditMode] = useState(false);
     const [serverOnline, setServerOnline] = useState(false);
+    const [forceServerCheck, setForceServerCheck] = useState(false);
     const [keySequence, setKeySequence] = useState("");
     const location = useLocation();
     const isOnPowerEdit = location.pathname === "/power-edit";
     const isOnHome = location.pathname === "/";
 
     const handleKeyPress = useCallback((e) => {
-        // Only allow on localhost AND when server is online
-        if (!isLocalhost || !serverOnline) return;
-
         // Only listen for number keys
         if (!/^[0-9]$/.test(e.key)) {
             setKeySequence("");
@@ -36,14 +34,22 @@ export const EditProvider = ({ children }) => {
 
             // Full match - toggle edit mode
             if (newSequence === SECRET_CODE) {
-                setIsEditMode(prev => !prev);
+                // If on live site and not checking server yet, start checking
+                if (!isLocalhost && !forceServerCheck) {
+                    setForceServerCheck(true);
+                }
+                
+                // Only allow edit mode toggle if server is online
+                if (serverOnline) {
+                    setIsEditMode(prev => !prev);
+                }
                 setKeySequence("");
             }
         } else {
             // Wrong key, reset
             setKeySequence(e.key);
         }
-    }, [keySequence, serverOnline]);
+    }, [keySequence, serverOnline, forceServerCheck]);
 
     useEffect(() => {
         window.addEventListener("keydown", handleKeyPress);
@@ -71,9 +77,12 @@ export const EditProvider = ({ children }) => {
         <EditContext.Provider value={{ isEditMode, setIsEditMode, serverOnline }}>
             {children}
 
-            {/* Server status indicator - only on home screen */}
+            {/* Server status indicator - only on home screen. Enabled on localhost or by secret code. */}
             {isOnHome && (
-                <ServerStatus onStatusChange={handleServerStatusChange} />
+                <ServerStatus 
+                    onStatusChange={handleServerStatusChange} 
+                    enabled={isLocalhost || forceServerCheck}
+                />
             )}
 
             {isEditMode && !isOnPowerEdit && (
